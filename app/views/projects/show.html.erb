@@ -1,0 +1,21 @@
+<div class="col-md-8 offset-md-2">
+	<div class="card border-dark mb-3" > 
+		<h5 class="card-header" align="center"><%= @project.name.capitalize %></h5>
+	  <div class="card-body text-success">    
+	    <p class="card-text"><%= @project.desc %></p>
+	  </div>
+	  <div class="card-footer text-danger" align="center"><strong>
+	  	<%= @project.budget %></strong>
+	  </div>
+	  <div class="card-footer" align="center">
+	  	<div class="row">
+		  	<div class="col-6">
+		  		<%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe, @project.client, class: "btn btn-outline-secondary btn-sm btn-block "%>
+		  	</div>
+		  	<div class="col-6">
+		  		<%= link_to '<i class="fas fa-edit"></i> Edit'.html_safe, edit_project_path(@project), class: "btn btn-outline-success btn-sm btn-block"%>
+		  	</div>
+	  	</div>
+	  </div> 
+	</div>
+</div>	

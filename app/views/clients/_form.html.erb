@@ -1,0 +1,14 @@
+<%= render 'shared/errors', obj: @client %>
+<div class="col-md-8 offset-md-2">
+<%= form_with(model: client, local: true) do |form| %>
+  
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control"%>
+  </div>
+
+  <div class="actions">
+    <%= form.button(@client.new_record? ? '<i class="fas fa-plus"></i> Create client'.html_safe : '<i class="fas fa-paper-plane"></i> Update client'.html_safe, class: "btn btn-outline-success btn-sm btn-block") %>
+  </div>
+<% end %>
+</div>
