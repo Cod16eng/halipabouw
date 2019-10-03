@@ -2,13 +2,15 @@
   <%= @client.name %>
 </h1>
 
+
+
+<h1 align="center">Projects</h1>
 <div class="float-right">
   <%= link_to '<i class="fas fa-user-plus"></i> New Project'.html_safe, new_project_path(:client_id => @client), 
               class: "btn btn-outline-secondary btn-sm" %>
 </div>
 <div class="clearfix"></div>
 <br />
-<h1 align="center">Projects</h1>
 
 <table class="table">
   <thead class="thead-dark">
@@ -26,16 +28,16 @@
         <td><%= project.name %></td>
         <td><%= project.desc.truncate_words(10, separator: /\s/) %></td>
         <td><%= project.budget %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<i class="far fa-eye"></i>'.html_safe, project, class: "btn btn-outline-primary btn-sm rounded-circle" %></td>
+        <td><%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_project_path(project), class: "btn btn-outline-success btn-sm rounded-circle" %></td>
+        <td><%= link_to '<i class="fas fa-times"></i>'.html_safe, project, method: :delete, data: { confirm: 'Are you sure? You are about to delete the client and all his projects' }, class: "btn btn-outline-danger btn-sm rounded-circle"%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
 
-<div class="float-left col-md-4"><%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe, clients_path, class: "btn btn-outline-secondary btn-sm btn-block "%></div>
-<div class="float-right col-md-4"> <%= link_to '<i class="far fa-eye"></i> Edit'.html_safe,  edit_client_path(@client), class: "btn btn-outline-primary btn-sm btn-block"%></div>
+<div class="float-left col-md-4"><%= link_to '<i class="fas fa-arrow-left"></i> Back to clients'.html_safe, clients_path, class: "btn btn-outline-secondary btn-sm btn-block "%></div>
+<div class="float-right col-md-4"> <%= link_to '<i class="far fa-eye"></i> Edit Client'.html_safe,  edit_client_path(@client), class: "btn btn-outline-primary btn-sm btn-block"%></div>
 
 
