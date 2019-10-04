@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :materials
   resources :labours
   resources :projects
+  resources :users
   root 'clients#index'
   resources :clients
   get 'login', to: 'sessions#new'
