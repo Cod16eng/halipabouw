@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :materials
+  resources :labours
   resources :projects
   root 'clients#index'
   resources :clients

@@ -1,0 +1,27 @@
+<h1 align="center">Labours</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>Descrp</th>
+      <th>Nr inv</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @labours.each do |labour| %>
+      <tr>
+        <td><%= labour.name %></td>
+        <td><%= labour.amount %></td>
+        <td><%= labour.descrp %></td>
+        <td><%= labour.nr_inv_lab %></td>
+        <td><%= link_to 'Show', labour %></td>
+        <td><%= link_to 'Edit', edit_labour_path(labour) %></td>
+        <td><%= link_to 'Destroy', labour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
