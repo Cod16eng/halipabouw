@@ -27,7 +27,7 @@
       <tr>
         <td><%= labour.name %></td>
         <td><%= labour.amount %></td>
-        <td><%= labour.descrp %></td>
+        <td><%= labour.descrp.truncate_words(10, separator: /\s/) %></td>
         <td><%= labour.nr_inv_lab %></td>
         <td><%= link_to '<i class="far fa-eye"></i> Show'.html_safe, labour, class: "btn btn-outline-primary btn-sm btn-block" %></td>
         <td><%= link_to '<i class="far fa-edit"></i> Edit'.html_safe, edit_labour_path(labour), class: "btn btn-outline-success btn-sm btn-block" %></td>

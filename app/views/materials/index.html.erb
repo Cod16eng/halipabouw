@@ -29,7 +29,7 @@
       <tr>
         <td><%= material.name %></td>
         <td><%= material.amount %></td>
-        <td><%= material.descrp %></td>
+        <td><%= material.descrp.truncate_words(10, separator: /\s/) %></td>
         <td><%= material.nr_inv_mat %></td>
         <td><%= material.supplier %></td>
         <td><%= link_to '<i class="far fa-eye"></i> Show'.html_safe, material, class: "btn btn-outline-primary btn-sm btn-block" %></td>
