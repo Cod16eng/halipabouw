@@ -1,29 +1,36 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @material.name %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @material.amount %>
-</p>
-
-<p>
-  <strong>Descrp:</strong>
-  <%= @material.descrp %>
-</p>
-
-<p>
-  <strong>Nr inv:</strong>
-  <%= @material.nr_inv %>
-</p>
-
-<p>
-  <strong>Supplier:</strong>
-  <%= @material.supplier %>
-</p>
-
-<%= link_to 'Edit', edit_material_path(@material) %> |
-<%= link_to 'Back', materials_path %>
+<div class="col-md-8 offset-md-2">
+  <div class="card">
+    <div class="card-header" align="center">
+    <strong><%= @material.name.capitalize %></strong>
+    </div>
+    <div class="card-header text-center">
+      <strong>Supplier:</strong>
+      <%= @material.supplier %>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%= @material.descrp %></p>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-6">
+          <strong>Price:</strong>
+          <%= @material.amount %>
+        </div>
+        <div class="col-6">
+          <strong>Nr inv:</strong>
+          <%= @material.nr_inv_mat %>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-6">
+      <%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe,
+      'javascript:history.back()', class: "btn btn-outline-secondary btn-sm btn-block "%>
+        </div>
+        <div class="col-6">
+      <%= link_to '<i class="far fa-edit"></i> Edit'.html_safe, edit_material_path(@material), class: "btn btn-outline-success btn-sm btn-block" %>
+      </div>
+    </div>
+  </div>
+</div>

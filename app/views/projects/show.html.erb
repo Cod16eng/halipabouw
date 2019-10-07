@@ -50,7 +50,7 @@
 
 		  </div>
 		  <div class="card-footer text-danger" align= "center">
-				<strong>Total labour:  <%= @project.labours.sum(:amount)%></strong>
+				<strong>Total labour: € <%= @project.labours.sum(:amount)%></strong>
 		  </div>
 
 		</div>
@@ -61,20 +61,27 @@
 				<%= link_to '<i class="fas fa-plus"></i> Add Materials'.html_safe, new_material_path(:project_id => @project), class: "btn btn-outline-success btn-sm btn-block"%></h5>
 			<h5 class="card-header text-primary" align="center">Materials</h5>
 		  <div class="card-body text-primary">
-		    <p class="card-text"></p>
+				<table class="table">
+				  <thead class="thead-dark card-text">
+				    <tr>
+				      <th>Name</th>
+				      <th>Nr inv</th>
+				      <th>Price</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <% @project.materials.each do |material| %>
+				      <tr>
+				        <td><%= link_to material.name, material %></td>
+				        <td><%= material.nr_inv_mat %></td>
+								<td><%= material.amount %></td>
+							</tr>
+				    <% end %>
+				  </tbody>
+				</table>
 		  </div>
-		  <div class="card-footer text-danger" align="center"><strong>Budget: €
-		  	<%= @project.budget %></strong>
-		  </div>
-		  <div class="card-footer" align="center">
-		  	<div class="row">
-			  	<div class="col-6">
-			  		<%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe, @project.client, class: "btn btn-outline-secondary btn-sm btn-block "%>
-			  	</div>
-			  	<div class="col-6">
-			  		<%= link_to '<i class="fas fa-edit"></i> Edit'.html_safe, edit_project_path(@project), class: "btn btn-outline-success btn-sm btn-block"%>
-			  	</div>
-		  	</div>
+		  <div class="card-footer text-danger" align="center">
+		  	<strong>Total labour: € <%= @project.materials.sum(:amount)%></strong>
 		  </div>
 		</div>
 	</div>
@@ -88,11 +95,11 @@
 		<strong class="text-primary">Budget: €
 			<%= @project.budget %>
 		</strong>
-		<% profit= @project.budget - @project.labours.sum(:amount) %>
+		<% profit= @project.budget - @project.labours.sum(:amount) - @project.materials.sum(:amount)%>
 		<% if profit < 0 %>
-			<strong class="text-danger float-right">Profit: <%= profit %></strong>
+			<strong class="text-danger float-right">Profit: € <%= profit %></strong>
 		<% else profit > 0 %>
-			<strong class="text-success float-right">Profit: <%= profit %></strong>
+			<strong class="text-success float-right">Profit: € <%= profit %></strong>
 		<% end %>
 
 			</div>

@@ -1,16 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Materials</h1>
-
-<table>
-  <thead>
+<h1 align="center">All Materials</h1>
+<br>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
       <th>Name</th>
       <th>Amount</th>
       <th>Descrp</th>
       <th>Nr inv</th>
       <th>Supplier</th>
-      <th colspan="3"></th>
+      <th colspan="3"class="text-center">Actions</th>
     </tr>
   </thead>
 
@@ -20,16 +18,12 @@
         <td><%= material.name %></td>
         <td><%= material.amount %></td>
         <td><%= material.descrp %></td>
-        <td><%= material.nr_inv %></td>
+        <td><%= material.nr_inv_mat %></td>
         <td><%= material.supplier %></td>
-        <td><%= link_to 'Show', material %></td>
-        <td><%= link_to 'Edit', edit_material_path(material) %></td>
-        <td><%= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<i class="far fa-eye"></i> Show'.html_safe, material, class: "btn btn-outline-primary btn-sm btn-block" %></td>
+        <td><%= link_to '<i class="far fa-edit"></i> Edit'.html_safe, edit_material_path(material), class: "btn btn-outline-success btn-sm btn-block"  %></td>
+        <td><%= link_to '<i class="fas fa-times"></i> Delete'.html_safe, material, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm btn-block" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Material', new_material_path %>

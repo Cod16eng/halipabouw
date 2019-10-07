@@ -1,6 +1,15 @@
-<h1>Editing Material</h1>
+<h1 align="center">Editing Material</h1>
 
 <%= render 'form', material: @material %>
 
-<%= link_to 'Show', @material %> |
-<%= link_to 'Back', materials_path %>
+<div class="col-md-8 offset-md-2">
+  <div class="row">
+    <div class="col-6">
+      <%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe,
+      'javascript:history.back()', class: "btn btn-outline-secondary btn-sm btn-block "%>
+    </div>
+    <div class="col-6">
+      <%= link_to '<i class="fas fa-eye"></i> Show'.html_safe, @material, class: "btn btn-outline-primary btn-sm btn-block " %>
+    </div>
+  </div>
+</div>

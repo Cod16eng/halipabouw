@@ -1,5 +1,9 @@
-<h1>New Material</h1>
+<h1 align="center">New Material</h1>
 
 <%= render 'form', material: @material %>
 
-<%= link_to 'Back', materials_path %>
+<div class="col-md-8 offset-md-2">
+  <%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe,
+  'javascript:history.back()', class: "btn btn-outline-secondary btn-sm btn-block "%>
+</div>
+<br>
