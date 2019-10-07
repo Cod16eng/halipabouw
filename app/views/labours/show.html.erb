@@ -1,24 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @labour.name %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @labour.amount %>
-</p>
-
-<p>
-  <strong>Descrp:</strong>
-  <%= @labour.descrp %>
-</p>
-
-<p>
-  <strong>Nr inv:</strong>
-  <%= @labour.nr_inv_lab %>
-</p>
-
-<%= link_to 'Edit', edit_labour_path(@labour) %> |
-<%= link_to 'Back', labours_path %>
+<div class="col-md-8 offset-md-2">
+  <div class="card">
+    <div class="card-header" align="center">
+      <%= @labour.name %>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%= @labour.descrp %></p>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-6">
+          <strong>Amount:</strong>
+          <%= @labour.amount %>
+        </div>
+        <div class="col-6">
+          <strong>Nr inv:</strong>
+          <%= @labour.nr_inv_lab %>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-6">
+      <%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe,
+      'javascript:history.back()', class: "btn btn-outline-secondary btn-sm btn-block "%>
+        </div>
+        <div class="col-6">
+      <%= link_to '<i class="far fa-edit"></i> Edit'.html_safe, edit_labour_path(@labour), class: "btn btn-outline-success btn-sm btn-block" %>
+      </div>
+    </div>
+  </div>
+</div>
