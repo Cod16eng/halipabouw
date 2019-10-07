@@ -9,23 +9,23 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <li class="<%= 'active' if current_page?(clients_path) %>">
         <%= link_to 'Clients', clients_path, class:"nav-link" %>
       </li>
-      <li class="nav-item">
+      <li class="<%= 'active' if current_page?(projects_path) %>">
         <%= link_to 'All Projects', projects_path, class:"nav-link" %>
       </li>
-      <li class="nav-item"><%= link_to 'All Labours', labours_path, class:"nav-link" %>
+      <li class="<%= 'active' if current_page?(labours_path) %>"><%= link_to 'All Labours', labours_path, class:"nav-link" %>
       </li>
-      <li class="nav-item"><%= link_to 'All Materials', materials_path, class:"nav-link" %>
+      <li class="<%= 'active' if current_page?(materials_path) %>"><%= link_to 'All Materials', materials_path, class:"nav-link" %>
       </li>
-      <li class="nav-item"><%= link_to 'Users', users_path, class:"nav-link" %>
+      <li class="<%= 'active' if current_page?(users_path) %>"><%= link_to 'Users', users_path, class:"nav-link" %>
       </li>
       <li class="nav-item">
         <% if (logged_in?) %>
           <%= link_to 'Logout', logout_path, method: :delete, class:"nav-link" %>
         <% end %>
-      </li>      
+      </li>
     </ul>
   </div>
 </nav>

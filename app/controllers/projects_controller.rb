@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.search(params[:search])
   end
 
   # GET /projects/1
@@ -69,6 +69,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :desc, :budget, :client_id,)
+      params.require(:project).permit(:name, :desc, :budget, :client_id, :search)
     end
 end

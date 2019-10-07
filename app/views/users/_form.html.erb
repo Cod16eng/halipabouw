@@ -1,8 +1,8 @@
 <%= render 'shared/errors', obj: @user %>
 <br>
 <%= form_with(model: user, local: true) do |form| %>
-<div class="row">
-  <div class="col-md-6">
+
+
 
 
     <div class="form-group">
@@ -26,8 +26,8 @@
       <%= form.label :admin %>
       <%= form.check_box :admin, id: :user_admin %>
     </div>
-  </div>
-</div>
+
+
 
     <div class="form-group">
       <%= form.button(@user.new_record? ? '<i class="fas fa-user-plus"></i> Create user'.html_safe : '<i class="fas fa-paper-plane"></i> Update profile'.html_safe, class: "btn btn-outline-success btn-sm btn-block") %>

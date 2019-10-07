@@ -1,6 +1,6 @@
 <h1 align="center">Users</h1>
 <div class="float-left">
-  <%= link_to '<i class="fas fa-caret-left"></i> Back'.html_safe, new_user_path,
+  <%= link_to '<i class="fas fa-caret-left"></i> Back'.html_safe, clients_path,
               class: "btn btn-outline-secondary btn-sm" %>
 </div>
 <div class="float-right">
@@ -22,7 +22,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td></td>        
+        <td></td>
         <td><%= user.email %></td>
         <td><%= link_to '<i class="fas fa-eye"></i> Show'.html_safe , user,
                          class: "btn btn-outline-info btn-sm btn-block" %></td>
