@@ -2,7 +2,7 @@ class Labour < ApplicationRecord
   belongs_to :project
   validates :name, presence: true
   validates :amount, presence: true
-  validates :nr_inv_lab, presence: true
+  #validates :nr_inv_lab, presence: true
 
   def self.search(search)
 	    labours = all

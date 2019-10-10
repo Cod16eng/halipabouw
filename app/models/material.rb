@@ -1,6 +1,7 @@
 class Material < ApplicationRecord
   belongs_to :project
-  validates :nr_inv_mat, presence: true
+  validates :amount, presence: true
+  validates :name, presence: true
 
   def self.search(search)
 	    materials = all
