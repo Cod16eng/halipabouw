@@ -12,4 +12,6 @@ class Labour < ApplicationRecord
 	    all
 	  end
 	 end
+
+   
 end

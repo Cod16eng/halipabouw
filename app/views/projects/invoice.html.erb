@@ -1,0 +1,80 @@
+<h1 align="center">Invoice</h1>
+<div class="clearfix"></div>
+<br>
+
+<p>
+  Download:
+  <%= link_to "CSV", invoice_projects_path(format: "csv") %> |
+  <%= link_to "Excel", invoice_projects_path(format: "xls") %>
+</p>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Recipt No</th>
+      <th>Date</th>
+      <th>Supplier</th>
+      <th>Empty</th>
+      <th>Description</th>
+      <th>Project Name</th>
+      <th>Code</th>
+      <th>Bruto amount (including 9% VAT)</th>
+      <th>VAT / BTW</th>
+      <th>Bruto amount (including 21% VAT)</th>
+      <th>VAT / BTW</th>
+      <th>all representation and/or costs without VAT</th>
+      <th>currency code</th>
+      <th>Amount excl VAT Amount excl BTW</th>
+      <th>VAT / BTW</th>
+      <th>comments / notities</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <% invoice.labours.each do |labour|%>
+      <tr>
+        <td><%= labour.nr_inv_lab %></td>
+        <td><%= labour.datel %></td>
+        <td><%= labour.name %></td>
+        <td></td>
+        <td><%= labour.descrp %></td>
+        <td><%= labour.project.name %></td>
+        <td></td>
+        <td><%= labour.amount %></td>
+        <td><%=( labour.amount/(1.09)*0.09).round(2) %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= labour.amount - (labour.amount/(1.09)*0.09).round(2) %></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% end %>
+
+    <% invoice.materials.each do |material| %>
+      <tr>
+        <td><%= material.nr_inv_mat %></td>
+        <td><%= material.datem %></td>
+        <td><%= material.name %></td>
+        <td></td>
+        <td><%= material.descrp %></td>
+        <td><%= material.project.name %></td>
+        <td></td>
+        <td><%= material.amount %></td>
+        <td><%=( material.amount/(1.09)*0.09).round(2) %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= material.amount - (material.amount/(1.09)*0.09).round(2) %></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% end %>
+    <% end %>
+    <tr>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

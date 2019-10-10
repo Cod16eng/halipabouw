@@ -10,7 +10,16 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-  end  
+  end
+
+  def invoice
+    @invoices = Project.includes(:labours, :materials)
+    respond_to do |format|
+    format.html
+    format.csv { send_data @invoices.to_csv }
+    format.xls #{ send_data @invoices.to_csv(col_sep: "\t") }
+    end
+  end
 
   # GET /projects/new
   def new

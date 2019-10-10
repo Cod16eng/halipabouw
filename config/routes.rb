@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resources :materials
   resources :labours
-  resources :projects
+  resources :projects do
+    get :invoice, on: :collection
+  end
   resources :users
-  
+
   root 'clients#index'
   resources :clients
   get 'login', to: 'sessions#new'
