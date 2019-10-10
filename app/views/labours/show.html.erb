@@ -3,6 +3,9 @@
     <div class="card-header" align="center">
       <%= @labour.name %>
     </div>
+    <div class="card-header" align="center">Date:
+      <%= @labour.datel.strftime('%d %b %Y') %>
+    </div>
     <div class="card-body">
       <p class="card-text"><%= @labour.descrp %></p>
     </div>

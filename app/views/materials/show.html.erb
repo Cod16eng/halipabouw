@@ -7,6 +7,9 @@
       <strong>Supplier:</strong>
       <%= @material.supplier %>
     </div>
+    <div class="card-header" align="center">Date:
+      <%= @material.datem.strftime('%d %b %Y') %>
+    </div>
     <div class="card-body">
       <p class="card-text"><%= @material.descrp %></p>
     </div>

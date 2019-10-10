@@ -69,6 +69,6 @@ class LaboursController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def labour_params
-      params.require(:labour).permit(:name, :amount, :descrp, :nr_inv_lab, :project_id, :search)
+      params.require(:labour).permit(:name, :amount, :descrp, :nr_inv_lab, :project_id, :search, :datel)
     end
 end

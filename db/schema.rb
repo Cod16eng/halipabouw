@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191004081948) do
+ActiveRecord::Schema.define(version: 20191010075923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,23 +23,25 @@ ActiveRecord::Schema.define(version: 20191004081948) do
 
   create_table "labours", force: :cascade do |t|
     t.string "name"
-    t.decimal "amount"
+    t.decimal "amount", precision: 5, scale: 2
     t.text "descrp"
     t.integer "project_id"
     t.integer "nr_inv_lab"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "datel"
   end
 
   create_table "materials", force: :cascade do |t|
     t.string "name"
-    t.decimal "amount"
+    t.decimal "amount", precision: 5, scale: 2
     t.text "descrp"
     t.integer "nr_inv_mat"
     t.integer "project_id"
     t.string "supplier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "datem"
   end
 
   create_table "projects", force: :cascade do |t|
