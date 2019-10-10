@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
   end
 
   def invoice
-    @invoices = Project.includes(:labours, :materials)
+    @invoices = Project.includes(:labours, :materials).order('labours.project_id')
     respond_to do |format|
     format.html
     format.csv { send_data @invoices.to_csv }
